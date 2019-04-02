@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Gabby Davidson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -72,6 +72,15 @@ def run_test_integers():
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
+    # Test 2:
+    expected = [1, 2, 7, 6, 4, 13, 2]
+    answer = integers([(1, 2),
+                       ('hi', 'hello'),
+                       [7, 'hey', 6],
+                       [4, 13, 2],
+                       ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
 
 def integers(sequence_of_sequences):
     """
@@ -119,7 +128,12 @@ def integers(sequence_of_sequences):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:  10 minutes.
     # -------------------------------------------------------------------------
-
+    new = []
+    for k in sequence_of_sequences:
+        for j in k:
+            if type(k[j]) == int:
+                new = new + [k[j]]
+    return new
 
 def run_test_big_letters():
     """ Tests the    big_letters    function. """

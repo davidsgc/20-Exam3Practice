@@ -102,7 +102,20 @@ def hourglass(window, n, point, radius, color):
     #    DIFFICULTY:      8
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # -------------------------------------------------------------------------
-
+    for k in range(n):
+        for j in range(k+1):
+            y = ((2 * radius) ** 2 - (radius) ** 2) ** (1 / 2)
+            lower_circle = rg.Circle(rg.Point(point.x - k * radius + 2 * j * radius, point.y + y * (k)), radius)
+            upper_circle = rg.Circle(rg.Point(point.x - k * radius + 2 * j * radius, point.y - y * k), radius)
+            lower_circle.fill_color = color
+            upper_circle.fill_color = color
+            lower_line = rg.Line(rg.Point(lower_circle.center.x - radius, lower_circle.center.y), rg.Point(lower_circle.center.x + radius, lower_circle.center.y))
+            upper_line = rg.Line(rg.Point(upper_circle.center.x - radius, upper_circle.center.y), rg.Point(upper_circle.center.x + radius, upper_circle.center.y))
+            lower_circle.attach_to(window)
+            upper_circle.attach_to(window)
+            lower_line.attach_to(window)
+            upper_line.attach_to(window)
+    window.render()
 
 def run_test_many_hourglasses():
     """ Tests the    many_hourglasses    function. """

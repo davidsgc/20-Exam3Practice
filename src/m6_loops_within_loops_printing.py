@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Gabby Davidson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -76,7 +76,7 @@ def shape(r):
     For purposes of "lining up", assume r is a single digit.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     ###########################################################################
@@ -88,7 +88,17 @@ def shape(r):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  15 minutes.
     # -------------------------------------------------------------------------
-
+    for k in range(r, -1, -1):
+        for j in range(r - k):
+            print(' ', end="")
+        for p in range(k):
+            print('+', end="")
+        print('!', end="")
+        for q in range(k):
+            print(q + 1, end="")
+        for z in range(r - k):
+            print('-', end="")
+        print()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
